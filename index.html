@@ -7,20 +7,24 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-            max-width: 600px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 20px;
             line-height: 1.6;
-            background: #111;
+            background: #0c0c0c;
             color: #eee;
         }
         h1 {
             color: #4da3ff;
             text-align: center;
+            margin-bottom: 10px;
         }
-        a {
-            color: #4da3ff;
-            font-weight: bold;
+        .app-icon {
+            width: 120px;
+            display: block;
+            margin: 0 auto 20px auto;
+            border-radius: 22px;
+            box-shadow: 0 0 20px rgba(77,163,255,0.4);
         }
         .box {
             background: #1b1b1b;
@@ -28,14 +32,62 @@
             border-radius: 12px;
             margin-top: 20px;
         }
+        a {
+            color: #4da3ff;
+            font-weight: bold;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #000;
+        }
+        video {
+            width: 100%;
+            margin-top: 25px;
+            border-radius: 14px;
+            box-shadow: 0 0 20px #000;
+        }
     </style>
 </head>
+
 <body>
+
+    <img src="/icons/appicon.png" class="app-icon" alt="OnePlay Icon">
+
     <h1>Soporte OnePlay</h1>
+
     <div class="box">
         <p>Si necesitas asistencia técnica o deseas ponerte en contacto con nosotros, puedes enviarnos un correo a:</p>
         <p><a href="mailto:oneplayapp.contact@gmail.com">oneplayapp.contact@gmail.com</a></p>
         <p>Responderemos lo antes posible.</p>
     </div>
+
+    <h2 style="margin-top: 40px;">Vista previa de la app</h2>
+
+    <!-- 🟦 GALERÍA DE IMÁGENES -->
+    <div class="gallery">
+        <img src="/images/Final Store grid.png" alt="Grid">
+        <img src="/images/Final Store movie.png" alt="Movie Detail">
+        <img src="/images/Final Store movies menu.png" alt="Movies Menu">
+        <img src="/images/Final Store player final-2.png" alt="Player">
+        <img src="/images/Final Store series menu.png" alt="Series Menu">
+        <img src="/images/Final Store series.png" alt="Series">
+        <img src="/images/Final Store Settings final.png" alt="Settings">
+    </div>
+
+    <!-- 🟦 VIDEO DEMO -->
+    <h2 style="margin-top: 40px;">Vídeo demostración</h2>
+
+    <video controls poster="/images/Final Store grid.png">
+        <source src="/videos/Demo.mov" type="video/quicktime">
+        Tu navegador no soporta reproducción de video.
+    </video>
+
 </body>
 </html>
