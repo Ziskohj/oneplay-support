@@ -101,11 +101,11 @@
         }
         .gallery img:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0,0,0,0.6); }
 
-        /* VIDEO (vertical app recording → phone-style frame, centered) */
+        /* VIDEO (landscape 16:9 demo, centered) */
         video {
             display: block; margin: 0 auto;
-            width: min(400px, 100%); height: auto;
-            border-radius: 26px; border: 1px solid var(--border);
+            width: 100%; max-width: 760px; aspect-ratio: 16 / 9; height: auto;
+            border-radius: 16px; border: 1px solid var(--border);
             box-shadow: 0 18px 44px rgba(0,0,0,0.6); background: #000;
         }
 
@@ -201,8 +201,8 @@
         <!-- VIDEO -->
         <section>
             <h2 data-i18n="video_h2">Demo video</h2>
-            <video controls playsinline poster="/public/images/home1.png">
-                <source src="/public/videos/Demo.mov" type="video/quicktime" />
+            <video controls playsinline>
+                <source src="/public/videos/Demo.mp4" type="video/mp4" />
                 Your browser does not support video playback.
             </video>
         </section>
