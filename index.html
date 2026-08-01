@@ -3,92 +3,183 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soporte OnePlay</title>
+    <title>OnePlay — Reproductor universal</title>
+    <meta name="description" content="OnePlay: tu reproductor universal para iPhone y iPad. IPTV, M3U, Xtream y tu propio contenido, con descubrimiento por actor, mejora de imagen y más." />
     <style>
+        :root {
+            --bg: #08080b;
+            --surface: #15151c;
+            --surface-2: #1d1d26;
+            --text: #ededf3;
+            --muted: #9a9aac;
+            --border: rgba(255,255,255,0.08);
+            --fuchsia: #f512ec;
+            --violet: #3e42e6;
+        }
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background:
+                radial-gradient(1000px 600px at 50% -200px, rgba(245,18,236,0.14), transparent 60%),
+                radial-gradient(900px 600px at 100% 10%, rgba(62,66,230,0.12), transparent 55%),
+                var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            background: #0c0c0c;
-            color: #eee;
+            -webkit-font-smoothing: antialiased;
         }
-        h1 {
-            color: #4da3ff;
-            text-align: center;
-            margin-bottom: 10px;
+        .wrap { max-width: 1000px; margin: 0 auto; padding: 0 22px; }
+        .grad-text {
+            background: linear-gradient(100deg, var(--fuchsia), var(--violet));
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
         }
+
+        /* HERO */
+        header { text-align: center; padding: 64px 0 40px; }
         .app-icon {
-            width: 120px;
-            display: block;
-            margin: 0 auto 20px auto;
-            border-radius: 22px;
-            box-shadow: 0 0 20px rgba(77,163,255,0.4);
+            width: 112px; height: 112px; border-radius: 26px; display: block; margin: 0 auto 22px;
+            box-shadow: 0 12px 40px rgba(245,18,236,0.35), 0 0 0 1px var(--border);
         }
-        .box {
-            background: #1b1b1b;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
+        h1 { font-size: clamp(38px, 8vw, 60px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+        .tagline { font-size: clamp(17px, 3.4vw, 21px); color: var(--text); margin: 0 auto 6px; max-width: 620px; font-weight: 600; }
+        .sub { color: var(--muted); max-width: 560px; margin: 0 auto; }
+
+        /* FEATURES */
+        section { padding: 34px 0; }
+        h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 22px; text-align: center; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+        .card {
+            background: linear-gradient(180deg, var(--surface-2), var(--surface));
+            border: 1px solid var(--border); border-radius: 18px; padding: 22px; position: relative;
         }
-        a {
-            color: #4da3ff;
-            font-weight: bold;
+        .card .ico { font-size: 26px; margin-bottom: 10px; }
+        .card h3 { margin: 0 0 6px; font-size: 17px; font-weight: 700; }
+        .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
+        .badge {
+            position: absolute; top: 16px; right: 16px; font-size: 11px; font-weight: 800; letter-spacing: 0.03em;
+            padding: 3px 9px; border-radius: 999px; color: #fff;
+            background: linear-gradient(100deg, var(--fuchsia), var(--violet));
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
+
+        /* GALLERY */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
         .gallery img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 0 10px #000;
+            width: 100%; display: block; border-radius: 20px;
+            border: 1px solid var(--border); box-shadow: 0 14px 34px rgba(0,0,0,0.5);
+            transition: transform .25s ease, box-shadow .25s ease;
         }
+        .gallery img:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0,0,0,0.6); }
+
+        /* VIDEO (grabación vertical de la app → encuadre tipo teléfono, centrado) */
         video {
-            width: 100%;
-            margin-top: 25px;
-            border-radius: 14px;
-            box-shadow: 0 0 20px #000;
+            display: block; margin: 0 auto;
+            width: min(400px, 100%); height: auto;
+            border-radius: 26px; border: 1px solid var(--border);
+            box-shadow: 0 18px 44px rgba(0,0,0,0.6); background: #000;
         }
+
+        /* SUPPORT */
+        .support {
+            background: linear-gradient(180deg, var(--surface-2), var(--surface));
+            border: 1px solid var(--border); border-radius: 18px; padding: 26px; text-align: center; max-width: 640px; margin: 0 auto;
+        }
+        .support a.mail {
+            display: inline-block; margin-top: 8px; font-size: 18px; font-weight: 700; text-decoration: none;
+            background: linear-gradient(100deg, var(--fuchsia), var(--violet));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        footer { text-align: center; color: var(--muted); font-size: 13px; padding: 40px 0 50px; }
     </style>
 </head>
-
 <body>
+    <div class="wrap">
 
-    <!-- ICONO -->
-    <img src="/public/icons/appicon.png" class="app-icon" alt="OnePlay Icon">
+        <!-- HERO -->
+        <header>
+            <img src="/public/icons/appicon.png" class="app-icon" alt="OnePlay" />
+            <h1><span class="grad-text">OnePlay</span></h1>
+            <p class="tagline">Tu reproductor universal para iPhone y iPad</p>
+            <p class="sub">IPTV, M3U, Xtream y tu propio contenido — todo en una sola app, cuidada al detalle.</p>
+        </header>
 
-    <h1>Soporte OnePlay</h1>
+        <!-- FEATURES -->
+        <section>
+            <h2>Qué lo hace diferente</h2>
+            <div class="features">
+                <div class="card">
+                    <span class="badge">NUEVO</span>
+                    <div class="ico">🎬</div>
+                    <h3>Descubrimiento por actor</h3>
+                    <p>Toca cualquier actor y explora su filmografía. Los títulos que ya tienes aparecen marcados y listos para ver.</p>
+                </div>
+                <div class="card">
+                    <div class="ico">▶️</div>
+                    <h3>Reproductor universal</h3>
+                    <p>IPTV, M3U, Xtream y tus propios archivos, con biblioteca automática y carátulas.</p>
+                </div>
+                <div class="card">
+                    <div class="ico">✨</div>
+                    <h3>Mejora de imagen</h3>
+                    <p>Reescala y realza el contenido de baja calidad, de forma automática y natural.</p>
+                </div>
+                <div class="card">
+                    <div class="ico">📺</div>
+                    <h3>Chromecast y AirPlay</h3>
+                    <p>Lleva lo que estás viendo a la tele con un solo toque.</p>
+                </div>
+                <div class="card">
+                    <div class="ico">⬇️</div>
+                    <h3>Descargas offline</h3>
+                    <p>Guarda películas y series para verlas donde quieras, sin conexión.</p>
+                </div>
+                <div class="card">
+                    <div class="ico">🗓️</div>
+                    <h3>Guía y catch-up</h3>
+                    <p>EPG completa y vuelve atrás en los canales con archivo disponible.</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="box">
-        <p>Si necesitas asistencia técnica o deseas ponerte en contacto con nosotros, puedes enviarnos un correo a:</p>
-        <p><a href="mailto:oneplayapp.contact@gmail.com">oneplayapp.contact@gmail.com</a></p>
-        <p>Responderemos lo antes posible.</p>
+        <!-- GALLERY -->
+        <section>
+            <h2>Un vistazo</h2>
+            <div class="gallery">
+                <img src="/public/images/home1.png" alt="Inicio" loading="lazy" />
+                <img src="/public/images/movies.png" alt="Catálogo de películas" loading="lazy" />
+                <img src="/public/images/series.png" alt="Series" loading="lazy" />
+                <img src="/public/images/player.png" alt="Reproductor" loading="lazy" />
+                <img src="/public/images/livetv.png" alt="TV en directo" loading="lazy" />
+                <img src="/public/images/local.png" alt="Biblioteca local" loading="lazy" />
+                <img src="/public/images/nextup.png" alt="A continuación" loading="lazy" />
+                <img src="/public/images/home2.png" alt="Inicio" loading="lazy" />
+            </div>
+        </section>
+
+        <!-- VIDEO -->
+        <section>
+            <h2>Vídeo demostración</h2>
+            <video controls playsinline poster="/public/images/home1.png">
+                <source src="/public/videos/Demo.mov" type="video/quicktime" />
+                Tu navegador no soporta la reproducción de vídeo.
+            </video>
+        </section>
+
+        <!-- SUPPORT -->
+        <section>
+            <h2>Soporte</h2>
+            <div class="support">
+                <p>¿Necesitas ayuda o quieres contactarnos? Escríbenos y te respondemos lo antes posible.</p>
+                <a class="mail" href="mailto:oneplayapp.contact@gmail.com">oneplayapp.contact@gmail.com</a>
+            </div>
+        </section>
+
+        <footer>
+            © 2026 OnePlay · Hecho con cariño para los amantes del cine y la TV
+        </footer>
+
     </div>
-
-    <h2 style="margin-top: 40px;">Vista previa de la app</h2>
-
-    <!-- IMÁGENES -->
-    <div class="gallery">
-        <img src="/public/images/Final%20Store%20grid.png" alt="Grid">
-        <img src="/public/images/Final%20Store%20movie.png" alt="Movie Detail">
-        <img src="/public/images/Final%20Store%20movies%20menu.png" alt="Movies Menu">
-        <img src="/public/images/Final%20Store%20player%20final-2.png" alt="Player">
-        <img src="/public/images/Final%20Store%20series%20menu.png" alt="Series Menu">
-        <img src="/public/images/Final%20Store%20series.png" alt="Series">
-        <img src="/public/images/Final%20Store%20Settings%20final.png" alt="Settings">
-    </div>
-
-    <!-- VIDEO -->
-    <h2 style="margin-top: 40px;">Vídeo demostración</h2>
-
-    <video controls poster="/public/images/Final%20Store%20grid.png">
-        <source src="/public/videos/Demo.mov" type="video/quicktime">
-        Tu navegador no soporta reproducción de video.
-    </video>
-
 </body>
 </html>
