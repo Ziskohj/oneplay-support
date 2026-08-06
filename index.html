@@ -202,7 +202,7 @@
         <section>
             <h2 data-i18n="video_h2">Demo video</h2>
             <video id="demoVideo" controls playsinline poster="/public/images/AppTour_poster.jpg">
-                <source src="/public/videos/AppTour_en_2.mp4" type="video/mp4" />
+                <source src="/public/videos/AppTour_en_3.mp4" type="video/mp4" />
                 Your browser does not support video playback.
             </video>
         </section>
@@ -277,7 +277,7 @@
             var demo = document.getElementById('demoVideo');
             if (demo) {
                 var srcEl = demo.querySelector('source');
-                var vsrc = '/public/videos/AppTour_' + (lang === 'es' ? 'es' : 'en') + '_2.mp4';
+                var vsrc = '/public/videos/AppTour_' + (lang === 'es' ? 'es' : 'en') + '_3.mp4';
                 if (srcEl && srcEl.getAttribute('src') !== vsrc) { srcEl.setAttribute('src', vsrc); demo.load(); }
             }
             try { localStorage.setItem('op_lang', lang); } catch (e) {}
