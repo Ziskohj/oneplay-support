@@ -93,13 +93,14 @@
         }
 
         /* GALLERY */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .gallery img {
             width: 100%; display: block; border-radius: 20px;
             border: 1px solid var(--border); box-shadow: 0 14px 34px rgba(0,0,0,0.5);
             transition: transform .25s ease, box-shadow .25s ease;
         }
         .gallery img:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0,0,0,0.6); }
+        @media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
 
         /* VIDEO (recorrido vertical de la app → marco tipo teléfono, centrado) */
         video {
@@ -187,14 +188,15 @@
         <section>
             <h2 data-i18n="gallery_h2">A closer look</h2>
             <div class="gallery">
-                <img src="/public/images/home1.png" alt="Home" loading="lazy" />
+                <img src="/public/images/home-hero.png" alt="Home" loading="lazy" />
+                <img src="/public/images/live.png" alt="Live channels" loading="lazy" />
+                <img src="/public/images/epg.png" alt="Live TV guide" loading="lazy" />
                 <img src="/public/images/movies.png" alt="Movie catalog" loading="lazy" />
-                <img src="/public/images/series.png" alt="Series" loading="lazy" />
-                <img src="/public/images/player.png" alt="Player" loading="lazy" />
-                <img src="/public/images/livetv.png" alt="Live TV" loading="lazy" />
-                <img src="/public/images/local.png" alt="Local library" loading="lazy" />
-                <img src="/public/images/nextup.png" alt="Next up" loading="lazy" />
-                <img src="/public/images/home2.png" alt="Home" loading="lazy" />
+                <img src="/public/images/latest.png" alt="Latest releases" loading="lazy" />
+                <img src="/public/images/detail.png" alt="Title details" loading="lazy" />
+                <img src="/public/images/episodes.png" alt="Episodes" loading="lazy" />
+                <img src="/public/images/cast.png" alt="Cast &amp; crew" loading="lazy" />
+                <img src="/public/images/home.png" alt="Home library" loading="lazy" />
             </div>
         </section>
 
