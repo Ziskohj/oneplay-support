@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oneplay-support.vercel.app/sitemap.xml
