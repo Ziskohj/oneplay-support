@@ -45,6 +45,41 @@
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
+
+    <!-- Structured data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is OnePlay free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. OnePlay is a free IPTV, M3U and video player for iPhone and iPad. You bring your own Xtream Codes or M3U playlist." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does OnePlay include channels or content?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. OnePlay is a clean player with no built-in catalog. You add your own IPTV service or playlist." }
+        },
+        {
+          "@type": "Question",
+          "name": "What formats and sources does OnePlay support?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Xtream Codes, M3U/M3U8 and local files. Its own FFmpeg engine plays formats AVPlayer can't, such as MKV, AVI and HEVC, in 4K, HDR and Dolby Vision." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is OnePlay a good alternative to TiviMate or IPTV Smarters on iPhone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. OnePlay is a free, native iPhone and iPad player with its own FFmpeg engine, EPG, catch-up, offline downloads, Chromecast and AirPlay." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does OnePlay support EPG, catch-up, Chromecast and AirPlay?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, a full EPG guide, catch-up on supported channels, Picture in Picture, Chromecast and AirPlay to your TV." }
+        }
+      ]
+    }
+    </script>
     <style>
         :root {
             --bg: #08080b;
@@ -161,6 +196,34 @@
             -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
         }
 
+        /* COMPARISON TABLE */
+        .compare { overflow-x: auto; }
+        .compare table { width: 100%; border-collapse: collapse; min-width: 560px; }
+        .compare th, .compare td { padding: 12px 14px; border-bottom: 1px solid var(--border); text-align: left; font-size: 14.5px; }
+        .compare thead th { color: var(--muted); font-weight: 700; }
+        .compare thead th.op { color: #fff; }
+        .compare tbody th { font-weight: 600; color: var(--text); }
+        .compare td.col-op { background: rgba(245,18,236,0.07); }
+        .compare .op { font-weight: 800; }
+        .compare .yes { color: #2bd576; font-weight: 800; }
+        .compare .no { color: var(--muted); }
+        .cmp-note { text-align: center; color: var(--muted); font-size: 14px; max-width: 620px; margin: 16px auto 0; }
+
+        /* FAQ */
+        .faq { max-width: 760px; margin: 0 auto; }
+        .faq details {
+            background: linear-gradient(180deg, var(--surface-2), var(--surface));
+            border: 1px solid var(--border); border-radius: 14px; padding: 2px 18px; margin-bottom: 12px;
+        }
+        .faq summary {
+            cursor: pointer; font-weight: 700; font-size: 15.5px; padding: 15px 0; list-style: none;
+            display: flex; justify-content: space-between; align-items: center; gap: 14px;
+        }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::after { content: "+"; color: var(--fuchsia); font-weight: 800; font-size: 20px; }
+        .faq details[open] summary::after { content: "–"; }
+        .faq p { margin: 0 0 16px; color: var(--muted); font-size: 14.5px; }
+
         footer { text-align: center; color: var(--muted); font-size: 13px; padding: 40px 0 50px; }
     </style>
 </head>
@@ -249,6 +312,61 @@
             </video>
         </section>
 
+        <!-- COMPARISON -->
+        <section>
+            <h2 data-i18n="cmp_h2">OnePlay vs TiviMate vs IPTV Smarters</h2>
+            <div class="compare">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-i18n="cmp_feature">Feature</th>
+                            <th class="op">OnePlay</th>
+                            <th>TiviMate</th>
+                            <th>IPTV Smarters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th data-i18n="cmp_price">Price</th><td class="col-op op" data-i18n="cmp_free">Free</td><td data-i18n="cmp_freemium">Freemium</td><td data-i18n="cmp_paid">Paid</td></tr>
+                        <tr><th data-i18n="cmp_engine">Own FFmpeg engine (plays MKV/AVI/HEVC)</th><td class="col-op yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+                        <tr><th data-i18n="cmp_ios">Native iPhone &amp; iPad app</th><td class="col-op yes">✓</td><td class="no" data-i18n="cmp_android">Android-first</td><td class="yes">✓</td></tr>
+                        <tr><th data-i18n="cmp_sources">Xtream Codes + M3U/M3U8</th><td class="col-op yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                        <tr><th data-i18n="cmp_epg">EPG guide + catch-up</th><td class="col-op yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                        <tr><th data-i18n="cmp_cast">Chromecast + AirPlay</th><td class="col-op yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                        <tr><th data-i18n="cmp_offline">Offline downloads</th><td class="col-op yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+                        <tr><th data-i18n="cmp_nocat">Clean player, no built-in catalog</th><td class="col-op yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="cmp-note" data-i18n="cmp_note">You bring your own Xtream Codes or M3U playlist — OnePlay is a clean player, not a content provider.</p>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+            <h2 data-i18n="faq_h2">Frequently asked questions</h2>
+            <div class="faq">
+                <details>
+                    <summary data-i18n="faq_q1">Is OnePlay free?</summary>
+                    <p data-i18n="faq_a1">Yes. OnePlay is a free IPTV, M3U and video player for iPhone and iPad. You bring your own Xtream Codes or M3U playlist.</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq_q2">Does OnePlay include channels or content?</summary>
+                    <p data-i18n="faq_a2">No. OnePlay is a clean player with no built-in catalog. You add your own IPTV service or playlist.</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq_q3">What formats and sources does it support?</summary>
+                    <p data-i18n="faq_a3">Xtream Codes, M3U/M3U8 and local files. Its own FFmpeg engine plays formats AVPlayer can't — such as MKV, AVI and HEVC — in 4K, HDR and Dolby Vision.</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq_q4">Is it a good alternative to TiviMate or IPTV Smarters on iPhone?</summary>
+                    <p data-i18n="faq_a4">Yes. OnePlay is a free, native iPhone and iPad player with its own FFmpeg engine, EPG, catch-up, offline downloads, Chromecast and AirPlay.</p>
+                </details>
+                <details>
+                    <summary data-i18n="faq_q5">Does it support EPG, catch-up, Chromecast and AirPlay?</summary>
+                    <p data-i18n="faq_a5">Yes — a full EPG guide, catch-up on supported channels, Picture in Picture, Chromecast and AirPlay to your TV.</p>
+                </details>
+            </div>
+        </section>
+
         <!-- SUPPORT -->
         <section>
             <h2 data-i18n="support_h2">Support</h2>
@@ -287,7 +405,33 @@
             video_h2: "Vídeo demostración",
             support_h2: "Soporte",
             support_p: "¿Necesitas ayuda o quieres contactarnos? Escríbenos y te respondemos lo antes posible.",
-            footer: "© 2026 OnePlay · Hecho con cariño para los amantes del cine y la TV"
+            footer: "© 2026 OnePlay · Hecho con cariño para los amantes del cine y la TV",
+            cmp_h2: "OnePlay vs TiviMate vs IPTV Smarters",
+            cmp_feature: "Característica",
+            cmp_price: "Precio",
+            cmp_free: "Gratis",
+            cmp_freemium: "Freemium",
+            cmp_paid: "De pago",
+            cmp_engine: "Motor FFmpeg propio (reproduce MKV/AVI/HEVC)",
+            cmp_ios: "App nativa para iPhone y iPad",
+            cmp_android: "Android primero",
+            cmp_sources: "Xtream Codes + M3U/M3U8",
+            cmp_epg: "Guía EPG + catch-up",
+            cmp_cast: "Chromecast + AirPlay",
+            cmp_offline: "Descargas offline",
+            cmp_nocat: "Reproductor limpio, sin catálogo propio",
+            cmp_note: "Tú traes tu lista Xtream Codes o M3U — OnePlay es un reproductor limpio, no un proveedor de contenido.",
+            faq_h2: "Preguntas frecuentes",
+            faq_q1: "¿OnePlay es gratis?",
+            faq_a1: "Sí. OnePlay es un reproductor IPTV, M3U y de vídeo gratis para iPhone y iPad. Tú traes tu lista Xtream Codes o M3U.",
+            faq_q2: "¿OnePlay incluye canales o contenido?",
+            faq_a2: "No. OnePlay es un reproductor limpio sin catálogo propio. Añades tu propio servicio IPTV o lista.",
+            faq_q3: "¿Qué formatos y fuentes admite?",
+            faq_a3: "Xtream Codes, M3U/M3U8 y archivos locales. Su motor FFmpeg propio reproduce formatos que AVPlayer no puede —como MKV, AVI y HEVC— en 4K, HDR y Dolby Vision.",
+            faq_q4: "¿Es una buena alternativa a TiviMate o IPTV Smarters en iPhone?",
+            faq_a4: "Sí. OnePlay es un reproductor gratis y nativo para iPhone y iPad con motor FFmpeg propio, EPG, catch-up, descargas offline, Chromecast y AirPlay.",
+            faq_q5: "¿Admite EPG, catch-up, Chromecast y AirPlay?",
+            faq_a5: "Sí — guía EPG completa, catch-up en canales compatibles, Picture in Picture, Chromecast y AirPlay a tu tele."
         };
         var META = {
             en: { title: "OnePlay — Free IPTV, M3U & Video Player for iPhone & iPad", desc: "OnePlay is a free IPTV, M3U and video player for iPhone and iPad. Load your own Xtream Codes or M3U playlist and watch live TV, movies and series in 4K/HDR with EPG, catch-up, Chromecast and AirPlay. Its own FFmpeg engine plays formats others can't." },
