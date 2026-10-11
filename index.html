@@ -16,7 +16,7 @@
     <meta property="og:title" content="OnePlay — Free IPTV, M3U & Video Player for iPhone & iPad" />
     <meta property="og:description" content="A free iPhone & iPad player for your IPTV (Xtream Codes), M3U playlists and local files. Live TV, movies and series in 4K/HDR, EPG, catch-up, Chromecast and AirPlay — powered by its own FFmpeg engine." />
     <meta property="og:url" content="https://oneplay-support.vercel.app/" />
-    <meta property="og:image" content="https://oneplay-support.vercel.app/public/images/brand_home.jpg" />
+    <meta property="og:image" content="https://oneplay-support.vercel.app/public/images/og.jpg" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="es_ES" />
 
@@ -24,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OnePlay — Free IPTV, M3U & Video Player for iPhone & iPad" />
     <meta name="twitter:description" content="A free iPhone & iPad player for your IPTV, M3U and local files. Live TV, movies and series in 4K/HDR, EPG, catch-up, Chromecast and AirPlay." />
-    <meta name="twitter:image" content="https://oneplay-support.vercel.app/public/images/brand_home.jpg" />
+    <meta name="twitter:image" content="https://oneplay-support.vercel.app/public/images/og.jpg" />
 
     <!-- Structured data: the app -->
     <script type="application/ld+json">
@@ -40,7 +40,7 @@
       "downloadUrl": "https://apps.apple.com/us/app/oneplay-pro/id6755545404",
       "installUrl": "https://apps.apple.com/us/app/oneplay-pro/id6755545404",
       "image": "https://oneplay-support.vercel.app/public/icons/appicon.png",
-      "screenshot": "https://oneplay-support.vercel.app/public/images/brand_home.jpg",
+      "screenshot": "https://oneplay-support.vercel.app/public/images/og.jpg",
       "author": { "@type": "Person", "name": "Sisco Garcia" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
@@ -320,6 +320,11 @@
                     <h3 data-i18n="c8_t">Your content, private</h3>
                     <p data-i18n="c8_d">A clean player with no built-in catalog. You bring your own Xtream Codes or M3U — nothing is streamed from us.</p>
                 </div>
+                <div class="card">
+                    <div class="ico">🪟</div>
+                    <h3 data-i18n="c9_t">Picture in Picture</h3>
+                    <p data-i18n="c9_d">Keep watching in a floating window while you browse, reply or use other apps — with subtitles and multiple audio tracks.</p>
+                </div>
             </div>
         </section>
 
@@ -327,11 +332,12 @@
         <section>
             <h2 data-i18n="gallery_h2">A closer look</h2>
             <div class="gallery">
-                <img data-img-en="/public/images/g_home_en.jpg" data-img-es="/public/images/g_home_es.jpg" src="/public/images/g_home_en.jpg" alt="OnePlay Player home — one player for everything: IPTV, M3U and local files" loading="lazy" />
-                <img data-img-en="/public/images/g_movies_en.jpg" data-img-es="/public/images/g_movies_es.jpg" src="/public/images/g_movies_en.jpg" alt="Your whole library — movies catalogue" loading="lazy" />
-                <img data-img-en="/public/images/g_live_en.jpg" data-img-es="/public/images/g_live_es.jpg" src="/public/images/g_live_en.jpg" alt="Live TV with full EPG, catch-up and favorites" loading="lazy" />
-                <img data-img-en="/public/images/g_series_en.jpg" data-img-es="/public/images/g_series_es.jpg" src="/public/images/g_series_en.jpg" alt="Series organised with artwork and seasons" loading="lazy" />
-                <img data-img-en="/public/images/g_ficha_en.jpg" data-img-es="/public/images/g_ficha_es.jpg" src="/public/images/g_ficha_en.jpg" alt="Title detail with synopsis and cast" loading="lazy" />
+                <img src="/public/images/pv_home.jpg" alt="OnePlay Player home — one player for everything: IPTV, M3U and local files" loading="lazy" />
+                <img src="/public/images/pv_movies.jpg" alt="Your whole library — movies catalogue in 4K" loading="lazy" />
+                <img src="/public/images/pv_live.jpg" alt="Live TV with full EPG, catch-up and favorites" loading="lazy" />
+                <img src="/public/images/pv_series.jpg" alt="Series organised with artwork and seasons" loading="lazy" />
+                <img src="/public/images/pv_ficha.jpg" alt="Title detail with synopsis, cast and episodes" loading="lazy" />
+                <img src="/public/images/pv_cast.jpg" alt="Actor discovery — cast, crew and filmography" loading="lazy" />
             </div>
         </section>
 
@@ -448,6 +454,8 @@
             c7_d: "Su motor FFmpeg propio reproduce MKV, AVI y HEVC en 4K, HDR y Dolby Vision — formatos que las apps basadas en AVPlayer no pueden.",
             c8_t: "Tu contenido, privado",
             c8_d: "Un reproductor limpio sin catálogo propio. Tú traes tu Xtream Codes o M3U — no servimos ningún contenido.",
+            c9_t: "Picture in Picture",
+            c9_d: "Sigue viendo en una ventana flotante mientras navegas, respondes o usas otras apps — con subtítulos y varias pistas de audio.",
             gallery_h2: "Un vistazo",
             trip_h2: "El reproductor",
             video_h2: "Vídeo demostración",
