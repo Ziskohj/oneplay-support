@@ -193,6 +193,9 @@
         .gallery img:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0,0,0,0.6); }
         @media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
 
+        /* PLAYER TRIPTYCH */
+        .triptych img { width: 100%; display: block; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 16px 42px rgba(0,0,0,0.55); }
+
         /* VIDEO (recorrido vertical de la app → marco tipo teléfono, centrado) */
         video {
             display: block; margin: 0 auto;
@@ -307,6 +310,16 @@
                     <h3 data-i18n="c6_t">Guide &amp; catch-up</h3>
                     <p data-i18n="c6_d">Full EPG and rewind on channels with an available archive.</p>
                 </div>
+                <div class="card">
+                    <div class="ico">🧩</div>
+                    <h3 data-i18n="c7_t">Plays what others can't</h3>
+                    <p data-i18n="c7_d">Its own FFmpeg engine plays MKV, AVI and HEVC in 4K, HDR and Dolby Vision — formats AVPlayer-based apps choke on.</p>
+                </div>
+                <div class="card">
+                    <div class="ico">🔒</div>
+                    <h3 data-i18n="c8_t">Your content, private</h3>
+                    <p data-i18n="c8_d">A clean player with no built-in catalog. You bring your own Xtream Codes or M3U — nothing is streamed from us.</p>
+                </div>
             </div>
         </section>
 
@@ -314,12 +327,19 @@
         <section>
             <h2 data-i18n="gallery_h2">A closer look</h2>
             <div class="gallery">
-                <img src="/public/images/brand_home.jpg" alt="OnePlay Player — one player for everything: IPTV, M3U and local files" loading="lazy" />
-                <img src="/public/images/brand_movies.jpg" alt="Your whole library — movies and series" loading="lazy" />
-                <img src="/public/images/brand_live.jpg" alt="Live TV with full EPG, catch-up and favorites" loading="lazy" />
-                <img src="/public/images/brand_player1.jpg" alt="Player that plays what others can't — MKV, AVI, HEVC, 4K HDR" loading="lazy" />
-                <img src="/public/images/brand_player2.jpg" alt="OnePlay Player in landscape with full playback controls" loading="lazy" />
-                <img src="/public/images/brand_player3.jpg" alt="Auto-play next episode, Chromecast and AirPlay" loading="lazy" />
+                <img data-img-en="/public/images/g_home_en.jpg" data-img-es="/public/images/g_home_es.jpg" src="/public/images/g_home_en.jpg" alt="OnePlay Player home — one player for everything: IPTV, M3U and local files" loading="lazy" />
+                <img data-img-en="/public/images/g_movies_en.jpg" data-img-es="/public/images/g_movies_es.jpg" src="/public/images/g_movies_en.jpg" alt="Your whole library — movies catalogue" loading="lazy" />
+                <img data-img-en="/public/images/g_live_en.jpg" data-img-es="/public/images/g_live_es.jpg" src="/public/images/g_live_en.jpg" alt="Live TV with full EPG, catch-up and favorites" loading="lazy" />
+                <img data-img-en="/public/images/g_series_en.jpg" data-img-es="/public/images/g_series_es.jpg" src="/public/images/g_series_en.jpg" alt="Series organised with artwork and seasons" loading="lazy" />
+                <img data-img-en="/public/images/g_ficha_en.jpg" data-img-es="/public/images/g_ficha_es.jpg" src="/public/images/g_ficha_en.jpg" alt="Title detail with synopsis and cast" loading="lazy" />
+            </div>
+        </section>
+
+        <!-- PLAYER TRIPTYCH -->
+        <section>
+            <h2 data-i18n="trip_h2">The player</h2>
+            <div class="triptych">
+                <img src="/public/images/player_triptych.jpg" alt="OnePlay landscape player — plays what others can't: MKV, AVI, HEVC, 4K HDR, with auto-play next episode, Chromecast and AirPlay" loading="lazy" width="1840" height="1333" />
             </div>
         </section>
 
@@ -424,7 +444,12 @@
             c5_d: "Guarda películas y series para verlas donde quieras, sin conexión.",
             c6_t: "Guía y catch-up",
             c6_d: "EPG completa y vuelve atrás en los canales con archivo disponible.",
+            c7_t: "Reproduce lo que otros no",
+            c7_d: "Su motor FFmpeg propio reproduce MKV, AVI y HEVC en 4K, HDR y Dolby Vision — formatos que las apps basadas en AVPlayer no pueden.",
+            c8_t: "Tu contenido, privado",
+            c8_d: "Un reproductor limpio sin catálogo propio. Tú traes tu Xtream Codes o M3U — no servimos ningún contenido.",
             gallery_h2: "Un vistazo",
+            trip_h2: "El reproductor",
             video_h2: "Vídeo demostración",
             support_h2: "Soporte",
             support_p: "¿Necesitas ayuda o quieres contactarnos? Escríbenos y te respondemos lo antes posible.",
@@ -481,6 +506,11 @@
                 var on = b.getAttribute('data-lang') === lang;
                 b.classList.toggle('active', on);
                 b.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
+            // Galería: rótulos quemados por idioma → intercambiar la imagen que toca.
+            document.querySelectorAll('.gallery img[data-img-en]').forEach(function (img) {
+                var isrc = (lang === 'es') ? img.getAttribute('data-img-es') : img.getAttribute('data-img-en');
+                if (isrc && img.getAttribute('src') !== isrc) img.setAttribute('src', isrc);
             });
             // El recorrido demo lleva rótulos quemados por idioma → cargar el vídeo que toca.
             var demo = document.getElementById('demoVideo');
