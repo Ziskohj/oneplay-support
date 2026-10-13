@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OnePlay — Free IPTV, M3U & Video Player for iPhone & iPad</title>
+    <title>OnePlay Player — Free IPTV & M3U Player for iPhone & iPad</title>
     <meta name="description" content="OnePlay is a free IPTV, M3U and video player for iPhone and iPad. Load your own Xtream Codes or M3U playlist and watch live TV, movies and series in 4K/HDR with EPG, catch-up, Chromecast and AirPlay. Its own FFmpeg engine plays formats others can't." />
     <meta name="keywords" content="OnePlay, OnePlay IPTV, IPTV player iPhone, IPTV player iPad, M3U player iOS, Xtream Codes player, free IPTV player, EPG, catch-up, FFmpeg player iOS" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#08080b" />
     <link rel="canonical" href="https://oneplay-support.vercel.app/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/public/icons/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/public/icons/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/public/icons/apple-touch-icon.png" />
+    <link rel="preload" as="image" href="/public/images/hero_banner.jpg"
+          imagesrcset="/public/images/hero_banner_1100.jpg 1100w, /public/images/hero_banner.jpg 2000w" imagesizes="(max-width: 1000px) 100vw, 1000px" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="OnePlay" />
-    <meta property="og:title" content="OnePlay — Free IPTV, M3U & Video Player for iPhone & iPad" />
+    <meta property="og:site_name" content="OnePlay Player" />
+    <meta property="og:title" content="OnePlay Player — Free IPTV & M3U Player for iPhone & iPad" />
     <meta property="og:description" content="A free iPhone & iPad player for your IPTV (Xtream Codes), M3U playlists and local files. Live TV, movies and series in 4K/HDR, EPG, catch-up, Chromecast and AirPlay — powered by its own FFmpeg engine." />
     <meta property="og:url" content="https://oneplay-support.vercel.app/" />
     <meta property="og:image" content="https://oneplay-support.vercel.app/public/images/og.jpg" />
@@ -22,9 +28,20 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OnePlay — Free IPTV, M3U & Video Player for iPhone & iPad" />
+    <meta name="twitter:title" content="OnePlay Player — Free IPTV & M3U Player for iPhone & iPad" />
     <meta name="twitter:description" content="A free iPhone & iPad player for your IPTV, M3U and local files. Live TV, movies and series in 4K/HDR, EPG, catch-up, Chromecast and AirPlay." />
     <meta name="twitter:image" content="https://oneplay-support.vercel.app/public/images/og.jpg" />
+
+    <!-- Structured data: site name shown by Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "OnePlay Player",
+      "alternateName": ["OnePlay", "OnePlay IPTV Player"],
+      "url": "https://oneplay-support.vercel.app/"
+    }
+    </script>
 
     <!-- Structured data: the app -->
     <script type="application/ld+json">
@@ -128,22 +145,21 @@
         .lang-switch button:focus-visible { outline: 2px solid var(--fuchsia); outline-offset: 2px; }
 
         /* HERO */
-        header { padding: 46px 0 30px; }
-        .hero { display: grid; grid-template-columns: 0.9fr 1.12fr; gap: 34px; align-items: center; }
-        .hero-copy { text-align: left; }
-        .logo-lockup { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-        .logo-lockup img { width: 46px; height: 46px; border-radius: 11px; box-shadow: 0 6px 20px rgba(245,18,236,0.35), 0 0 0 1px var(--border); }
-        .logo-lockup .ll-text { font-size: 23px; font-weight: 800; letter-spacing: -0.01em; }
-        .logo-lockup .ll-text .ll-player { color: var(--muted); font-weight: 600; }
-        .hero-h1 { font-size: clamp(40px, 6.4vw, 64px); font-weight: 800; line-height: 1.03; letter-spacing: -0.03em; margin: 0 0 18px; }
-        .hero-tag { font-size: clamp(16px, 2.3vw, 21px); color: var(--muted); font-weight: 600; margin: 0 0 2px; }
-        .hero-phones { width: 100%; height: auto; display: block; }
+        header { padding: 64px 0 34px; }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+        }
+        .hero-banner {
+            display: block; width: 100%; height: auto; border-radius: 22px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 90px rgba(245,18,236,0.16), 0 0 0 1px var(--border);
+        }
+        .hero-cta { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 30px; text-align: center; }
+        .hero-tag { font-size: clamp(16px, 2.3vw, 20px); color: var(--muted); font-weight: 600; margin: 0; }
         @media (max-width: 820px) {
-            .hero { grid-template-columns: 1fr; gap: 12px; text-align: center; }
-            .hero-copy { text-align: center; }
-            .logo-lockup { margin-bottom: 16px; }
-            .hero-phones { order: 2; margin-top: 10px; }
-            .hero-copy .store-badge { margin-top: 20px; }
+            header { padding: 58px 0 26px; }
+            .hero-banner { border-radius: 14px; }
+            .hero-cta { margin-top: 22px; gap: 14px; }
         }
         .app-icon {
             width: 112px; height: 112px; border-radius: 26px; display: block; margin: 0 auto 22px;
@@ -186,7 +202,7 @@
         /* GALLERY */
         .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
         .gallery img {
-            width: 100%; display: block; border-radius: 20px;
+            width: 100%; height: auto; display: block; border-radius: 20px;
             border: 1px solid var(--border); box-shadow: 0 14px 34px rgba(0,0,0,0.5);
             transition: transform .25s ease, box-shadow .25s ease;
         }
@@ -258,20 +274,17 @@
 
         <!-- HERO -->
         <header>
-            <div class="hero">
-                <div class="hero-copy">
-                    <div class="logo-lockup">
-                        <img src="/public/icons/appicon.png" alt="OnePlay Player" />
-                        <span class="ll-text">OnePlay<span class="ll-player"> Player</span></span>
-                    </div>
-                    <h1 class="hero-h1"><span data-i18n="hero_h1a">One player for </span><span class="grad-text" data-i18n="hero_h1b">everything.</span></h1>
-                    <p class="hero-tag" data-i18n="hero_tag">IPTV · M3U · local files</p>
+            <h1 class="sr-only" data-i18n="hero_h1_seo">OnePlay Player — one player for everything: the free IPTV, M3U and video player for iPhone and iPad.</h1>
+            <img class="hero-banner" src="/public/images/hero_banner.jpg"
+                 srcset="/public/images/hero_banner_1100.jpg 1100w, /public/images/hero_banner.jpg 2000w"
+                 sizes="(max-width: 1000px) 100vw, 1000px" width="2000" height="921" fetchpriority="high"
+                 alt="OnePlay Player — One player for everything. Library, IPTV and M3U on iPhone: live sports, movies, series, concerts and news flowing into one app." />
+            <div class="hero-cta">
+                <p class="hero-tag" data-i18n="hero_tag">Free IPTV, M3U &amp; video player for iPhone and iPad</p>
                     <a class="store-badge" href="https://apps.apple.com/us/app/oneplay-pro/id6755545404" aria-label="Download on the App Store">
                         <svg class="apple" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                         <span class="sb-text"><small data-i18n="badge_small">Download on the</small><strong>App Store</strong></span>
                     </a>
-                </div>
-                <img class="hero-phones" src="/public/images/hero_phones.jpg" alt="OnePlay Player on iPhone — Home screen and landscape video player" width="1680" height="1454" />
             </div>
         </header>
 
@@ -332,12 +345,12 @@
         <section>
             <h2 data-i18n="gallery_h2">A closer look</h2>
             <div class="gallery">
-                <img src="/public/images/pv_home.jpg" alt="OnePlay Player home — one player for everything: IPTV, M3U and local files" loading="lazy" />
-                <img src="/public/images/pv_movies.jpg" alt="Your whole library — movies catalogue in 4K" loading="lazy" />
-                <img src="/public/images/pv_live.jpg" alt="Live TV with full EPG, catch-up and favorites" loading="lazy" />
-                <img src="/public/images/pv_series.jpg" alt="Series organised with artwork and seasons" loading="lazy" />
-                <img src="/public/images/pv_ficha.jpg" alt="Title detail with synopsis, cast and episodes" loading="lazy" />
-                <img src="/public/images/pv_cast.jpg" alt="Actor discovery — cast, crew and filmography" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_home.jpg" alt="OnePlay Player home — one player for everything: IPTV, M3U and local files" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_movies.jpg" alt="Your whole library — movies catalogue in 4K" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_live.jpg" alt="Live TV with full EPG, catch-up and favorites" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_series.jpg" alt="Series organised with artwork and seasons" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_ficha.jpg" alt="Title detail with synopsis, cast and episodes" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_cast.jpg" alt="Actor discovery — cast, crew and filmography" loading="lazy" />
             </div>
         </section>
 
@@ -345,16 +358,16 @@
         <section>
             <h2 data-i18n="trip_h2">The player</h2>
             <div class="gallery">
-                <img src="/public/images/pv_player_a.jpg" alt="OnePlay landscape player — now playing with restart" loading="lazy" />
-                <img src="/public/images/pv_player_b.jpg" alt="Plays what others can't — MKV, AVI, HEVC, 4K HDR, auto-play next episode" loading="lazy" />
-                <img src="/public/images/pv_player_c.jpg" alt="Player controls — settings, Chromecast, AirPlay and next" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_player_a.jpg" alt="OnePlay landscape player — now playing with restart" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_player_b.jpg" alt="Plays what others can't — MKV, AVI, HEVC, 4K HDR, auto-play next episode" loading="lazy" />
+                <img width="760" height="1652" src="/public/images/pv_player_c.jpg" alt="Player controls — settings, Chromecast, AirPlay and next" loading="lazy" />
             </div>
         </section>
 
         <!-- VIDEO -->
         <section>
             <h2 data-i18n="video_h2">Demo video</h2>
-            <video id="demoVideo" controls playsinline poster="/public/images/AppTour_poster_4.jpg">
+            <video id="demoVideo" controls playsinline preload="metadata" poster="/public/images/AppTour_poster_4.jpg">
                 <source src="/public/videos/AppTour_en_4.mp4" type="video/mp4" />
                 Your browser does not support video playback.
             </video>
@@ -434,7 +447,8 @@
         var ES = {
             hero_h1a: "Un reproductor para ",
             hero_h1b: "todo.",
-            hero_tag: "IPTV · M3U · archivos locales",
+            hero_tag: "Reproductor IPTV, M3U y de vídeo gratis para iPhone y iPad",
+            hero_h1_seo: "OnePlay Player — un reproductor para todo: el reproductor IPTV, M3U y de vídeo gratis para iPhone y iPad.",
             tagline: "Tu reproductor universal para iPhone y iPad",
             sub: "IPTV, M3U, Xtream y tu propio contenido — todo en una sola app, cuidada al detalle.",
             badge_small: "Descárgalo en el",
@@ -492,8 +506,8 @@
             faq_a5: "Sí — guía EPG completa, catch-up en canales compatibles, Picture in Picture, Chromecast y AirPlay a tu tele."
         };
         var META = {
-            en: { title: "OnePlay — Free IPTV, M3U & Video Player for iPhone & iPad", desc: "OnePlay is a free IPTV, M3U and video player for iPhone and iPad. Load your own Xtream Codes or M3U playlist and watch live TV, movies and series in 4K/HDR with EPG, catch-up, Chromecast and AirPlay. Its own FFmpeg engine plays formats others can't." },
-            es: { title: "OnePlay — Reproductor IPTV, M3U y vídeo gratis para iPhone y iPad", desc: "OnePlay es un reproductor IPTV, M3U y de vídeo gratis para iPhone y iPad. Carga tu lista Xtream Codes o M3U y disfruta TV en directo, películas y series en 4K/HDR con guía EPG, catch-up, Chromecast y AirPlay. Su motor FFmpeg reproduce formatos que otros no pueden." }
+            en: { title: "OnePlay Player — Free IPTV & M3U Player for iPhone & iPad", desc: "OnePlay is a free IPTV, M3U and video player for iPhone and iPad. Load your own Xtream Codes or M3U playlist and watch live TV, movies and series in 4K/HDR with EPG, catch-up, Chromecast and AirPlay. Its own FFmpeg engine plays formats others can't." },
+            es: { title: "OnePlay Player — Reproductor IPTV y M3U gratis para iPhone y iPad", desc: "OnePlay es un reproductor IPTV, M3U y de vídeo gratis para iPhone y iPad. Carga tu lista Xtream Codes o M3U y disfruta TV en directo, películas y series en 4K/HDR con guía EPG, catch-up, Chromecast y AirPlay. Su motor FFmpeg reproduce formatos que otros no pueden." }
         };
 
         var nodes = document.querySelectorAll('[data-i18n]');
